@@ -98,6 +98,13 @@ void Dash::getData()
     }
 }
 
+void Dash::closeEvent(QCloseEvent * event)
+{
+    writeData();
+    std::cout<<"--------\n";
+}
+
+
 Dash::~Dash()
 {
     delete ui;

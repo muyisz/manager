@@ -2,7 +2,7 @@
 #define JOINCLUB_H
 
 #include <QWidget>
-
+#include <QCloseEvent>
 namespace Ui {
 class Joinclub;
 }
@@ -14,7 +14,7 @@ class Joinclub : public QWidget
 public:
     explicit Joinclub(Controller *c,QWidget *parent = nullptr);
     ~Joinclub();
-
+    void closeEvent( QCloseEvent * event);
 private slots:
     void on_yes_clicked();
 

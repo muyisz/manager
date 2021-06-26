@@ -14,6 +14,11 @@ Application::Application(Controller *c,QWidget *parent) :
     ui->setupUi(this);
 }
 
+void Application::closeEvent(QCloseEvent * event)
+{
+    writeData();
+}
+
 Application::~Application()
 {
     delete ui;

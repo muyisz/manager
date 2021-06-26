@@ -16,6 +16,11 @@ Joinclub::~Joinclub()
     delete ui;
 }
 
+void Joinclub::closeEvent(QCloseEvent * event)
+{
+    writeData();
+}
+
 void Joinclub::on_yes_clicked()
 {
     QString club=ui->clubid->text();

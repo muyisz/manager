@@ -52,6 +52,11 @@ void ManagementClub::wa(){
     getData();
 }
 
+void ManagementClub::closeEvent(QCloseEvent * event)
+{
+    writeData();
+}
+
 
 void ManagementClub::getData()
 {

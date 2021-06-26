@@ -1,6 +1,6 @@
 #ifndef LOGIN_H
 #define LOGIN_H
-
+#include <QCloseEvent>
 #include <QWidget>
 namespace Ui {
 class Login;
@@ -13,7 +13,7 @@ class Login : public QWidget
 public:
     explicit Login(Controller *c,QWidget *parent = nullptr);
     ~Login();
-
+    void closeEvent( QCloseEvent * event);
 private slots:
     void on_register_b_clicked();
 

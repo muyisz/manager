@@ -2,7 +2,7 @@
 #define MANAGEMENTCLUB_H
 
 #include <QWidget>
-
+#include <QCloseEvent>
 namespace Ui {
 class ManagementClub;
 }
@@ -17,6 +17,7 @@ public:
     void getData();
     void ac();
     void wa();
+    void closeEvent( QCloseEvent * event);
 private:
     Ui::ManagementClub *ui;
     Controller *c;

@@ -1,6 +1,6 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
-
+#include <QCloseEvent>
 #include <QWidget>
 
 namespace Ui {
@@ -14,7 +14,7 @@ class Application : public QWidget
 public:
     explicit Application(Controller *c,QWidget *parent = nullptr);
     ~Application();
-
+    void closeEvent( QCloseEvent * event);
 private slots:
     void on_confirmSubmission_clicked();
 

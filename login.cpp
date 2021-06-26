@@ -22,6 +22,12 @@ void Login::on_register_b_clicked()
     this->c->showRegister();
 }
 
+void Login::closeEvent(QCloseEvent * event)
+{
+    writeData();
+}
+
+
 void Login::on_login_b_clicked()
 {
     QString username=ui->username->text();

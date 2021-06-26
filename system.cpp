@@ -156,9 +156,9 @@ void writeData() {
   ofstream actionFile;
   ofstream personFile;
   ofstream communityFile;
-  actionFile.open("./actions.txt");
-  personFile.open("./persons.txt");
-  communityFile.open("./communities.txt");
+  actionFile.open("E:\\QTobgect\\manager\\actions.txt");
+  personFile.open("E:\\QTobgect\\manager\\persons.txt");
+  communityFile.open("E:\\QTobgect\\manager\\communities.txt");
   for (auto it : persons) {
     auto now = it.second;
     personFile << now.GetID() << " " << now.GetName() << " "
@@ -171,7 +171,7 @@ void writeData() {
   for (auto it : communities) {
     auto now = it.second;
     communityFile << now.GetID() << " " << now.GetName() << " " << now.GetTime()
-                  << " " << now.GetDes() << endl;
+                  << " " << now.GetDes() << " " << now.size <<  endl;
   }
   for (auto it : actions) {
     auto now = it.second;

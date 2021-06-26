@@ -2,7 +2,7 @@
 #define REGISTERED_H
 
 #include <QWidget>
-
+#include <QCloseEvent>
 namespace Ui {
 class Registered;
 }
@@ -15,7 +15,7 @@ class Registered : public QWidget
 public:
     explicit Registered(Controller *c,QWidget *parent = nullptr);
     ~Registered();
-
+    void closeEvent( QCloseEvent * event);
 private slots:
     void on_registered_b_clicked();
 

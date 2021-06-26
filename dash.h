@@ -1,6 +1,6 @@
 #ifndef DASH_H
 #define DASH_H
-
+#include <QCloseEvent>
 #include <QWidget>
 
 namespace Ui {
@@ -16,6 +16,7 @@ public:
     explicit Dash(Controller *c,QWidget *parent = nullptr);
     ~Dash();
     void getData();
+    void closeEvent( QCloseEvent * event);
 private slots:
     void on_pushButton_2_clicked();
 

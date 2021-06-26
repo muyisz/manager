@@ -12,6 +12,12 @@ Registered::Registered(Controller *c,QWidget *parent) :
     ui->setupUi(this);
 }
 
+void Registered::closeEvent(QCloseEvent * event)
+{
+    writeData();
+}
+
+
 Registered::~Registered()
 {
     delete ui;
