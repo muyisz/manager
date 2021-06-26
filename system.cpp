@@ -53,7 +53,7 @@ vector<Community> getAllClub() {
 
 vector<Action> getMyAction() {
   vector<Action> res;
-  for (auto it : now->reviews) {
+  for (auto it : actions) {
     res.push_back(it.second);
   }
   return res;
@@ -112,9 +112,9 @@ void loadData() {
   ifstream actionFile;
   ifstream personFile;
   ifstream communityFile;
-  actionFile.open("./actions.txt");
-  personFile.open("./persons.txt");
-  communityFile.open("./communities.txt");
+  actionFile.open("E:\\QTobgect\\manager\\actions.txt");
+  personFile.open("E:\\QTobgect\\manager\\persons.txt");
+  communityFile.open("E:\\QTobgect\\manager\\communities.txt");
   long long id;
   string holder, applier;
   string name, time, description;

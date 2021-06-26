@@ -125,10 +125,11 @@ class Person {
   int JoinCommunity(Community *community) {
     int id = community->GetID();
     if (communities.count(id) == 0) {
-      this->joins[id] = *community;
-      return 0;
-    } else {
+
       return -1;
+    } else {
+        this->joins[id] = *community;
+      return 0;
     }
   }
   void ExitCommunity(long long id) { this->joins.erase(id); }

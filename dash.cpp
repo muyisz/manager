@@ -39,9 +39,9 @@ Dash::Dash(Controller *c,QWidget *parent) :
 
 void Dash::getData()
 {
-    ui->myclub->clear();
-    ui->myacit->clear();
-    ui->clubinfo->clear();
+    ui->myclub->clearContents();
+    ui->myacit->clearContents();
+    ui->clubinfo->clearContents();
     ui->myclub->setRowCount(0);
     ui->myacit->setRowCount(0);
     ui->clubinfo->setRowCount(0);
@@ -91,8 +91,8 @@ void Dash::getData()
         ui->clubinfo->insertRow(nCount);
         QString name=QString::fromStdString(i.GetName());
         QString ID=QString::number(i.GetID());
-        item[0]=new QTableWidgetItem(name);
-        item[1]=new QTableWidgetItem(ID);
+        item[0]=new QTableWidgetItem(ID);
+        item[1]=new QTableWidgetItem(name);
         ui->clubinfo->setItem(nCount,0,item[0]);
         ui->clubinfo->setItem(nCount,1,item[1]);
     }

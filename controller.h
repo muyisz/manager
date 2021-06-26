@@ -1,6 +1,5 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
-
 #include "login.h"
 #include "registered.h"
 #include "dash.h"

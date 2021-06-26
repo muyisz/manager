@@ -46,7 +46,11 @@ FORMS += \
     registered.ui
 
 TRANSLATIONS += \
-    system_1_zh_CN.ts
+    system_1_zh_CN.ts \
+    persons.txt \
+    actions.txt \
+    communities.txt
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
