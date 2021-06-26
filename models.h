@@ -28,24 +28,24 @@ class Action {
     0 = CHECK
     1 = OK
   */
-  Community *holder;
-  Person *applier;
+  string holder;
+  string applier;
   Action() {}
   Action(long long id, string name, string time, string description, int status,
-         Community &holder, Person &applier) {
+         string holder, string applier) {
     this->id = id;
     this->name = name;
     this->time = time;
     this->description = description;
     this->status = status;
-    this->holder = &holder;
-    this->applier = &applier;
+    this->holder = holder;
+    this->applier = applier;
   }
   ~Action() {}
   long long GetID() { return this->id; }
   string GetName() { return this->name; }
   string GetTime() { return this->time; }
-  string GetDes() { return this->description;  }
+  string GetDes() { return this->description; }
 };
 
 class Community {
@@ -68,7 +68,7 @@ class Community {
     this->size = size;
   }
   ~Community() {}
-  string GetDes(){return this->description;};
+  string GetDes() { return this->description; };
   long long GetID() { return this->id; }
   string GetName() { return this->name; }
   string GetTime() { return this->time; }
