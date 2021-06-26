@@ -1,8 +1,10 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H
+#include <fstream>
 #include <map>
 #include <string>
 #include <vector>
+
 #include "models.h"
 
 using namespace std;
@@ -31,5 +33,9 @@ vector<Action> getCheckAction();
 void acceptAction(string id);
 
 void rejectAction(string id);
+
+void loadData();
+
+void writeData();
 
 #endif

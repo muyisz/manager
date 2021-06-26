@@ -75,35 +75,108 @@ int applyAction(string actName, string time, string actDescription,
   long long communityID = atoll(clubID.c_str());
   long long actID = actions.size() + 1;
   actions[actID] = Action(actID, actName, time, actDescription, 0,
-                          communities[communityID], *now);
+                          communities[communityID].GetName(), now->GetName());
   now->ApplyApplication(&actions[actID]);
   return 0;
 }
 
 vector<Action> getAllAction() {
-    vector<Action> res;
-    for (auto i : actions) {
-        res.push_back(i.second);
-    }
-    return res;
+  vector<Action> res;
+  for (auto i : actions) {
+    res.push_back(i.second);
+  }
+  return res;
 }
 
 vector<Action> getCheckAction() {
-    vector<Action> res;
-    for (auto i : actions) {
-        if (i.second.status == 0) {
-            res.push_back(i.second);
-        }
+  vector<Action> res;
+  for (auto i : actions) {
+    if (i.second.status == 0) {
+      res.push_back(i.second);
     }
-    return res;
+  }
+  return res;
 }
 
 void acceptAction(string id) {
-    long long number = atoll(id.c_str());
-    actions[number].status = 1;
+  long long number = atoll(id.c_str());
+  actions[number].status = 1;
 }
 
 void rejectAction(string id) {
-    long long number = atoll(id.c_str());
-    actions[number].status = -1;
+  long long number = atoll(id.c_str());
+  actions[number].status = -1;
+}
+
+void loadData() {
+  ifstream actionFile;
+  ifstream personFile;
+  ifstream communityFile;
+  actionFile.open("./actions.txt");
+  personFile.open("./persons.txt");
+  communityFile.open("./communities.txt");
+  long long id;
+  string holder, applier;
+  string name, time, description;
+  int status;
+  while (actionFile >> id >> name >> time >> description >> status >> holder >>
+         applier) {
+    Action newAction(id, name, time, description, status, holder, applier);
+    actions[id] = newAction;
+  }
+  int size;
+  while (communityFile >> id >> name >> time >> description >> size) {
+    Community newCommunity(id, name, time, description, size);
+    for (auto it : actions) {
+      if (it.second.holder == name) {
+        newCommunity.holdings[it.second.GetID()] = it.second;
+      }
+    }
+    communities[id] = newCommunity;
+  }
+  string password;
+  int joinNumber;
+  while (personFile >> id >> name >> password >> joinNumber) {
+    Person newPerson(id, name, password);
+    for (auto it : actions) {
+      if (it.second.applier == name) {
+        newPerson.reviews[it.second.GetID()] = it.second;
+      }
+    }
+    for (int i = 0; i < joinNumber; i++) {
+      long long cid;
+      personFile >> cid;
+      newPerson.joins[cid] = communities[cid];
+    }
+    persons[id] = newPerson;
+  }
+}
+
+void writeData() {
+  ofstream actionFile;
+  ofstream personFile;
+  ofstream communityFile;
+  actionFile.open("./actions.txt");
+  personFile.open("./persons.txt");
+  communityFile.open("./communities.txt");
+  for (auto it : persons) {
+    auto now = it.second;
+    personFile << now.GetID() << " " << now.GetName() << " "
+               << now.GetPassword() << " " << now.joins.size();
+    for (auto c : now.joins) {
+      personFile << " " << c.second.GetID();
+    }
+    personFile << endl;
+  }
+  for (auto it : communities) {
+    auto now = it.second;
+    communityFile << now.GetID() << " " << now.GetName() << " " << now.GetTime()
+                  << " " << now.GetDes() << endl;
+  }
+  for (auto it : actions) {
+    auto now = it.second;
+    actionFile << now.GetID() << " " << now.GetName() << " " << now.GetTime()
+               << " " << now.GetDes() << " " << now.status << " " << now.holder
+               << " " << now.applier << endl;
+  }
 }
