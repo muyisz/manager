@@ -13,16 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QListView" name="name">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>50</y>
-     <width>311</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -152,6 +142,16 @@
    </property>
    <property name="text">
     <string>社团列表</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="name">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>50</y>
+     <width>311</width>
+     <height>31</height>
+    </rect>
    </property>
   </widget>
  </widget>

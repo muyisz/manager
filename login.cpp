@@ -2,7 +2,7 @@
 #include "ui_login.h"
 #include "controller.h"
 #include <QString>
-#include <string>
+#include "system.h"
 
 Login::Login(Controller *c,QWidget *parent) :
     QWidget(parent),
@@ -30,7 +30,7 @@ void Login::on_login_b_clicked()
     std::string p=password.toStdString();
     if(!ui->shabi->isChecked())
     {
-      if(1){
+      if(checkUser(u,p)){
           c->setUser(u);
           c->showDash();
        }

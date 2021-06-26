@@ -2,7 +2,7 @@
 #include "ui_registered.h"
 #include "controller.h"
 #include <QString>
-#include <string>
+#include "system.h"
 
 Registered::Registered(Controller *c,QWidget *parent) :
     QWidget(parent),
@@ -25,6 +25,7 @@ void Registered::on_registered_b_clicked()
     std::string n=name.toStdString();
     std::string p=password.toStdString();
     std::string u=username.toStdString();
-    //////
+    setUser(n,u,p);
+    c->setUser(u);
     c->showDash();
 }

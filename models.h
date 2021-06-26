@@ -10,9 +10,9 @@ class Person;
 class Community;
 class Action;
 
-map<long long, Community> communities;
-map<long long, Action> actions;
-map<long long, Person> persons;
+extern map<long long, Community> communities;
+extern map<long long, Action> actions;
+extern map<long long, Person> persons;
 
 class Action {
  private:
@@ -45,6 +45,7 @@ class Action {
   long long GetID() { return this->id; }
   string GetName() { return this->name; }
   string GetTime() { return this->time; }
+  string GetDes() { return this->description;  }
 };
 
 class Community {
@@ -67,6 +68,7 @@ class Community {
     this->size = size;
   }
   ~Community() {}
+  string GetDes(){return this->description;};
   long long GetID() { return this->id; }
   string GetName() { return this->name; }
   string GetTime() { return this->time; }

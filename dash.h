@@ -15,7 +15,6 @@ class Dash : public QWidget
 public:
     explicit Dash(Controller *c,QWidget *parent = nullptr);
     ~Dash();
-    //void setData()
     void getData();
 private slots:
     void on_pushButton_2_clicked();

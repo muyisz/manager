@@ -15,7 +15,8 @@ public:
     explicit ManagementClub(Controller *c,QWidget *parent = nullptr);
     ~ManagementClub();
     void getData();
-
+    void ac();
+    void wa();
 private:
     Ui::ManagementClub *ui;
     Controller *c;

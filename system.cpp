@@ -1,16 +1,12 @@
-#include <map>
-#include <string>
-#include <vector>
-
-#include "models.h"
+#include "system.h"
 
 using namespace std;
 
-extern map<long long, Community> communities;
-extern map<long long, Action> actions;
-extern map<long long, Person> persons;
-
 Person *now;
+
+map<long long, Community> communities;
+map<long long, Action> actions;
+map<long long, Person> persons;
 
 bool checkUser(string id, string password) {
   long long number = atoll(id.c_str());
@@ -47,7 +43,7 @@ vector<Community> getJoinedClub() {
   return res;
 }
 
-vector<Community> getAllClub(string id) {
+vector<Community> getAllClub() {
   vector<Community> res;
   for (auto it : communities) {
     res.push_back(it.second);
@@ -70,6 +66,7 @@ int joinClub(string clubID) {
   } else {
     communities[id].AppendMember();
     now->JoinCommunity(&communities[id]);
+    return 0;
   }
 }
 
@@ -80,4 +77,33 @@ int applyAction(string actName, string time, string actDescription,
   actions[actID] = Action(actID, actName, time, actDescription, 0,
                           communities[communityID], *now);
   now->ApplyApplication(&actions[actID]);
+  return 0;
+}
+
+vector<Action> getAllAction() {
+    vector<Action> res;
+    for (auto i : actions) {
+        res.push_back(i.second);
+    }
+    return res;
+}
+
+vector<Action> getCheckAction() {
+    vector<Action> res;
+    for (auto i : actions) {
+        if (i.second.status == 0) {
+            res.push_back(i.second);
+        }
+    }
+    return res;
+}
+
+void acceptAction(string id) {
+    long long number = atoll(id.c_str());
+    actions[number].status = 1;
+}
+
+void rejectAction(string id) {
+    long long number = atoll(id.c_str());
+    actions[number].status = -1;
 }

@@ -15,22 +15,23 @@ Controller::Controller()
     ap=new Application(this);
     ma=new ManagementClub(this);
     jo=new Joinclub(this);
-    now=lo;
-    now->show();
+    n=lo;
+    n->show();
 }
 
 void Controller::showManagementClub()
 {
-    now->hide();
-    now=ma;
-    now->show();
+    n->hide();
+    ma->getData();
+    n=ma;
+    n->show();
 }
 
 void Controller::showJoinclub()
 {
-    now->hide();
-    now=jo;
-    now->show();
+    n->hide();
+    n=jo;
+    n->show();
 }
 
 void Controller::setUser(std::string u)
@@ -45,24 +46,24 @@ std::string Controller::getUser()
 
 void Controller::showApplication()
 {
-    now->hide();
-    now=ap;
-    now->show();
+    n->hide();
+    n=ap;
+    n->show();
 }
 
 void Controller::showRegister()
 {
-    now->hide();
-    now=re;
-    now->show();
+    n->hide();
+    n=re;
+    n->show();
 }
 
 void Controller::showDash()
 {
-    now->hide();
-    now=da;
+    n->hide();
+    n=da;
     da->getData();
-    now->show();
+    n->show();
 }
 
 

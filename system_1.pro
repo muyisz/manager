@@ -34,7 +34,8 @@ HEADERS += \
     login.h \
     managementclub.h \
     models.h \
-    registered.h
+    registered.h \
+    system.h
 
 FORMS += \
     application.ui \

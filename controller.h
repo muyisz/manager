@@ -7,8 +7,10 @@
 #include "application.h"
 #include "managementclub.h"
 #include "joinclub.h"
-
 #include <string>
+#include <map>
+#include <vector>
+
 class Controller
 {
 public:
@@ -22,7 +24,7 @@ public:
     void showJoinclub();
     std::string getUser();
 private:
-    QWidget *now;
+    QWidget *n;
     Login *lo;
     Registered *re;
     Dash *da;
@@ -33,3 +35,4 @@ private:
 };
 
 #endif // CONTROLLER_H
+
