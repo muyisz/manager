@@ -46,7 +46,9 @@ void Login::on_login_b_clicked()
     }
     else{
         if(1){
-            c->showManagementClub();
+            if (username == "admin" && password == "admin") {
+                c->showManagementClub();
+            }
         }
         else{
 

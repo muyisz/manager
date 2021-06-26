@@ -62,7 +62,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>我申请的活动</string>
+    <string>活动列表</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="myclub">
