@@ -14,7 +14,7 @@ extern map<long long, Community> communities;
 extern map<long long, Action> actions;
 extern map<long long, Person> persons;
 
-class Action {
+class Action {//活动
  private:
   long long id;
   string name;
@@ -48,7 +48,7 @@ class Action {
   string GetDes() { return this->description; }
 };
 
-class Community {
+class Community {//社团
  private:
   long long id;
   string name;
@@ -89,7 +89,7 @@ class Community {
   }
 };
 
-class Person {
+class Person {//用户
  private:
   long long id;
   string name;
